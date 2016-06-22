@@ -7,6 +7,7 @@ var kwinkler=document.getElementById('coeffreaz').value;
 var rck=document.getElementById('Rck').value;
 var caricou=document.getElementById('uniformi').value;
 var sottofondo=document.getElementById('sotto').value;
+var alert=document.getElementById('alert');
 if (sottofondo=="polietilene"){
 var ksott=4;}
 if (sottofondo=="planare"){
@@ -16,15 +17,15 @@ var ksott=8;}
 areaf=Math.round(((ksott*distcont*(24*spess))/4400)*100)/100;
 areaferro.innerHTML= "l area del ferro d'armatura sar&agrave; pari a: <span style='font:bold 20px arial; color:#ff2200;'> "+areaf+" mm </span>";
 if (areaf<=1.635){
-ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial;color:#ff2200;'> &Phi; 6 maglia 200 X 200</span>  ";
+ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial;color:#ff2200;'> &Phi; 6 maglia 200 X 200</span><br /><br />ATTENZIONE: siccome sar&agrave; transitata dagli operatori, necessiter&agrave; almeno un &Phi; 8 per evitare deformazioni e disordini nella rete  ";
 }
 
  if (areaf >1.635 && areaf<=2.185){
-ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial;color:#ff2200;'>&Phi; 6 maglia 150 X 150</span>  ";
+ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial;color:#ff2200;'>&Phi; 6 maglia 150 X 150</span> <br /><br />ATTENZIONE: siccome sar&agrave; transitata dagli operatori, necessiter&agrave; almeno un &Phi; 8 per evitare deformazioni e disordini nella rete   ";
 } 
 
  if (areaf>2.185 && areaf<=2.91){
-ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial;color:#ff2200;'>&Phi; 6 maglia 100 X 100</span> <br>o in alternativa una rete <span style='font:bold 20px arial; color:#ff2200;'> &Phi; 8 maglia 200 X 200 </span> ";
+ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial;color:#ff2200;'>&Phi; 6 maglia 100 X 100</span> <br>o in alternativa una rete <span style='font:bold 20px arial; color:#ff2200;'> &Phi; 8 maglia 200 X 200 </span><br /><br />ATTENZIONE: siccome sar&agrave; transitata dagli operatori, necessiter&agrave; almeno un &Phi; 8 per evitare deformazioni e disordini nella rete   ";
 }
 if (areaf>2.91 && areaf <= 4.165){
 ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial;color:#ff2200;'>&Phi; 8 maglia 150 X 150</span>  ";
@@ -33,6 +34,8 @@ ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px 
 if (areaf>4.165){
 ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial; color:#ff2200;'> &Phi; 8 maglia 100 X 100 </span>  ";
 }
+if (spess<16){
+alert.innerHTML="<span style='color:#990000;'>Attenzione: con uno spessore inferiore a 16 cm ridurre il pi&ugrave; possibile le sovrapposizioni</span>";}
 modelast=5700*Math.sqrt(rck);
 coslam1=(kwinkler*3)*100;
 coslam2=((Math.pow(spess,3))*modelast);
