@@ -55,8 +55,13 @@ L'armatura non aumenta la capacita portante del pavimento ma serve:
        <div class="titoloins">
       <label for="coeffreaz">coeff. K  <b>N/mm<sup>3</sup></b> </label>
        </div>
-       <div class="inputins"> 
-      <input type=number name="coeffreaz" id="coeffreaz" >
+       <div class="inssel"> 
+       <select id="portanza">
+       <option value="0.03">Portanza inconsistente</option>
+       <option value="0.06"> Portanza accettabile </option>
+       <option value="0.1"> Portanza ottima</option>
+
+       </select>
        </div>
        </div>
        
@@ -95,7 +100,7 @@ L'armatura non aumenta la capacita portante del pavimento ma serve:
   <div id=scelta>   
          <br>
          
-       <button class="bottonev" id="calcola" onclick="calcolorete()">Calcola</button>
+       <button class="bottonev" id="calcola" onclick="controllo()">Calcola</button>
        <button class="bottoner" type="reset" value="Reset">Reset </button>
     
  
@@ -106,7 +111,7 @@ L'armatura non aumenta la capacita portante del pavimento ma serve:
  </div>                                                 
 <div id="risultati"> 
  <br />
-<div id="mezzeria"><h1>Armatura contro le fessurazioni</h1>
+<div id="mezzeria"><h1>Armatura in alto contro le fessurazioni</h1>
                       
 <div id="areaferro"></div>
 
@@ -131,8 +136,10 @@ L'armatura non aumenta la capacita portante del pavimento ma serve:
 
 <br />
 <br />
+<div id="scelta2">
  <button class="bottoner" id="ripeti" onclick="init()">Ripeti</button>
 
+  </div>
 
  </div>
 </div>
