@@ -1,9 +1,39 @@
+function controllo(){
+if (document.getElementById('spesspav').value==""){
+alert('Inserire lo spessore del pavimento');
+document.getElementById('spesspav').focus();
+}else{
+controllo2()}
+}
+function controllo2(){
+if(document.getElementById('digiucont').value==""){
+alert('inserire la distanza dei giunti di contrazione');
+document.getElementById('digiucont').focus();
+}else{
+controllo3()}
+}
+function controllo3(){
+if (document.getElementById('Rck').value==""){
+alert("Inserire la Resistenza del calcestruzzo");
+doccument.getElementById('Rck').focus();
+}else{
+controllo4()}
+}
+function controllo4(){
+if (document.getElementById('uniformi').value==""){
+alert('inserisci i carichi uniformi previsti');
+document.getElementById('uniformi').focus();
+}else{
+calcolorete();
+}
+}
+
 function calcolorete(){
  document.getElementById('pinserimento').style.display="none";
 document.getElementById('risultati').style.display="block";
 var distcont=document.getElementById('digiucont').value;
 var spess=document.getElementById('spesspav').value;
-var kwinkler=document.getElementById('coeffreaz').value;
+var kwinkler=document.getElementById('portanza').value;
 var rck=document.getElementById('Rck').value;
 var caricou=document.getElementById('uniformi').value;
 var sottofondo=document.getElementById('sotto').value;
@@ -15,7 +45,7 @@ var ksott=5.5;}
 if (sottofondo=="disassato"){
 var ksott=8;}
 areaf=Math.round(((ksott*distcont*(24*spess))/4400)*100)/100;
-areaferro.innerHTML= "l area del ferro d'armatura sar&agrave; pari a: <span style='font:bold 20px arial; color:#ff2200;'> "+areaf+" mm </span>";
+areaferro.innerHTML= "l'area del ferro d'armatura sar&agrave; pari a: <span style='font:bold 20px arial; color:#ff2200;'> "+areaf+" mm </span>";
 if (areaf<=1.635){
 ferromezzeria.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial;color:#ff2200;'> &Phi; 6 maglia 200 X 200</span><br /><br />ATTENZIONE: siccome sar&agrave; transitata dagli operatori, necessiter&agrave; almeno un &Phi; 8 per evitare deformazioni e disordini nella rete  ";
 }
@@ -68,15 +98,7 @@ ferrofondo.innerHTML="che corrisponde a una rete <span style='font:bold 20px ari
 if (afi>4.165){
 ferrofondo.innerHTML="che corrisponde a una rete <span style='font:bold 20px arial; color:#ff2200;'> &Phi; 8 maglia 100 X 100 </span>  ";
 }
-
-
-
-
-
-
-
- }
-
+}
 function init(){
 document.getElementById('intro').style.display="block";
 document.getElementById('risultati').style.display="none";
